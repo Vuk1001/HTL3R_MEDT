@@ -1,6 +1,7 @@
 <?php
 
 require_once 'php/YouTubeVideo.php';
+require_once 'php/VimeoVideo.php';
 
 $videos = [
     new YouTubeVideo('Funny Horror Trailer', '46WZfo1yFkI?si'),
