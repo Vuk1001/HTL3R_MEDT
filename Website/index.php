@@ -7,7 +7,14 @@ $videos = [
     new YouTubeVideo('Scary Comedy Clip', 'ooHiFoWz50U?si'),
     new YouTubeVideo('Horror Spoof 1', 'dIV9H1_CCk0?si'),
     new YouTubeVideo('Horror Spoof 2', 'd4y0GlZEikQ?si'),
-    new YouTubeVideo('Zombie Comedy Clip', '6iotcc-xXu8?si')
+    new YouTubeVideo('Zombie Comedy Clip', '6iotcc-xXu8?si'),
+    new VimeoVideo('Scary Movie 3 Trailer', '153724554'),
+    new VimeoVideo('Teletubbies Horror Trailer', '202696600'),
+    new VimeoVideo('Witch Tales Trailer', '450858469'),
+    new VimeoVideo('FNAF gameplay', '146903318'),
+    new VimeoVideo('spooky scary skeletons', '236636441')
+
+
 ];
 ?>
 
