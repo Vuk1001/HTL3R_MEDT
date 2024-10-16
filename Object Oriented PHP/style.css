@@ -1,0 +1,43 @@
+body {
+    background-color: #111;
+    color: #eee;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #8A2BE2;
+}
+
+.video-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+}
+
+.video-entry {
+    border: 2px solid #8A2BE2;
+    border-radius: 10px;
+    padding: 15px;
+    width: 300px;
+    background-color: #202020;
+}
+
+.video-entry h2 {
+    color: #DA70D6;
+    font-size: 18px;
+}
+
+.video-entry p {
+    color: #aaa;
+    font-style: italic;
+}
+
+.video-entry iframe {
+    width: 100%;
+    height: 200px;
+}
