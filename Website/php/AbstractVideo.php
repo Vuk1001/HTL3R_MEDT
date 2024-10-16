@@ -12,7 +12,7 @@ abstract class AbstractVideo implements VideoInterface {
     }
 
     public function getName(): string {
-        return $this->name;
+        return str_ireplace('funny', 'funny :)', $this->name);
     }
 
     public function getSource(): string {
