@@ -27,4 +27,4 @@ if (!isset($_GET['id'])) {
     respondWithJson($allOsts);
     exit;
 }
-?>
+

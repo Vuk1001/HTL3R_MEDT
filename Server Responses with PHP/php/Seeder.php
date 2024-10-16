@@ -27,4 +27,3 @@ class Seeder {
         return $osts;
     }
 }
-?>
