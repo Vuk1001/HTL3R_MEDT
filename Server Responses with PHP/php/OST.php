@@ -1,4 +1,5 @@
 <?php
+
 class Song {
     private int $id;
     private string $name;
@@ -20,7 +21,7 @@ class Song {
             'name' => $this->name,
             'artist' => $this->artist,
             'trackNumber' => $this->trackNumber,
-            'duration' => $this->duration
+            'duration' => $this->duration,
         ];
     }
 }
@@ -49,8 +50,9 @@ class OST {
             'name' => $this->name,
             'videoGame' => $this->videoGame,
             'releaseYear' => $this->releaseYear,
-            'trackList' => array_map(fn(Song $song): array => $song->toArray(), $this->trackList)
+            'trackList' => array_map(function (Song $song) {
+                return $song->toArray();
+            }, $this->trackList)
         ];
     }
 }
-
