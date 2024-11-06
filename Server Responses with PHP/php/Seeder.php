@@ -1,34 +1,29 @@
 <?php
-require_once 'OST.php';  // Stelle sicher, dass dies den korrekten Pfad hat
+
+require_once 'OST.php';
 
 class Seeder {
-    public static function seed(): array {
-        $osts = [];
+    public static function seed() {
+        $ost1 = new OST(1, "Final Fantasy OST", "Final Fantasy", 1987);
+        $ost1->addTrack(new Song(1, "Prelude", "Nobuo Uematsu", 1, "2:10"));
+        $ost1->addTrack(new Song(2, "Opening Theme", "Nobuo Uematsu", 2, "3:30"));
+        $ost1->addTrack(new Song(3, "Victory Fanfare", "Nobuo Uematsu", 3, "1:20"));
+        $ost1->addTrack(new Song(4, "Main Theme", "Nobuo Uematsu", 4, "4:00"));
 
-        // Erstellen des ersten OST
-        $ost1 = new OST(1, "Game OST 1", "Retro Game 1", 1995);
-        $ost1->addSong(new Song(1, "Song 1", "Artist 1", 1, "3:20"));
-        $ost1->addSong(new Song(2, "Song 2", "Artist 2", 2, "4:15"));
-        $ost1->addSong(new Song(3, "Song 3", "Artist 1", 3, "2:45"));
-        $ost1->addSong(new Song(4, "Song 4", "Artist 3", 4, "5:00"));
-        $osts[] = $ost1;
+        $ost2 = new OST(2, "The Legend of Zelda OST", "The Legend of Zelda", 1986);
+        $ost2->addTrack(new Song(5, "Overworld Theme", "Koji Kondo", 1, "2:00"));
+        $ost2->addTrack(new Song(6, "Dungeon Theme", "Koji Kondo", 2, "1:40"));
+        $ost2->addTrack(new Song(7, "End Theme", "Koji Kondo", 3, "2:30"));
+        $ost2->addTrack(new Song(8, "Title Theme", "Koji Kondo", 4, "1:50"));
 
-        // Erstellen des zweiten OST
-        $ost2 = new OST(2, "Game OST 2", "Retro Game 2", 2001);
-        $ost2->addSong(new Song(5, "Song 5", "Artist 4", 1, "3:00"));
-        $ost2->addSong(new Song(6, "Song 6", "Artist 2", 2, "3:45"));
-        $ost2->addSong(new Song(7, "Song 7", "Artist 5", 3, "4:30"));
-        $ost2->addSong(new Song(8, "Song 8", "Artist 6", 4, "3:50"));
-        $osts[] = $ost2;
+        $ost3 = new OST(3, "Mega Man 2 OST", "Mega Man 2", 1988);
+        $ost3->addTrack(new Song(9, "Dr. Wily Stage 1", "Takashi Tateishi", 1, "3:05"));
+        $ost3->addTrack(new Song(10, "Title Theme", "Takashi Tateishi", 2, "2:50"));
+        $ost3->addTrack(new Song(11, "Air Man Stage", "Takashi Tateishi", 3, "2:20"));
+        $ost3->addTrack(new Song(12, "Crash Man Stage", "Takashi Tateishi", 4, "2:10"));
 
-        // Erstellen des dritten OST
-        $ost3 = new OST(3, "Game OST 3", "Retro Game 3", 2010);
-        $ost3->addSong(new Song(9, "Song 9", "Artist 7", 1, "4:10"));
-        $ost3->addSong(new Song(10, "Song 10", "Artist 8", 2, "3:20"));
-        $ost3->addSong(new Song(11, "Song 11", "Artist 9", 3, "5:10"));
-        $ost3->addSong(new Song(12, "Song 12", "Artist 7", 4, "2:40"));
-        $osts[] = $ost3;
-
-        return $osts;
+        return [$ost1, $ost2, $ost3];
     }
 }
+
+?>

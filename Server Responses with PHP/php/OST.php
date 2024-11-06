@@ -1,13 +1,13 @@
 <?php
 
-class Song {
-    private int $id;
-    private string $name;
-    private string $artist;
-    private int $trackNumber;
-    private string $duration;
+class Song implements JsonSerializable {
+    private $id;
+    private $name;
+    private $artist;
+    private $trackNumber;
+    private $duration;
 
-    public function __construct(int $id, string $name, string $artist, int $trackNumber, string $duration) {
+    public function __construct($id, $name, $artist, $trackNumber, $duration) {
         $this->id = $id;
         $this->name = $name;
         $this->artist = $artist;
@@ -15,7 +15,13 @@ class Song {
         $this->duration = $duration;
     }
 
-    public function toArray(): array {
+    public function getId() { return $this->id; }
+    public function getName() { return $this->name; }
+    public function getArtist() { return $this->artist; }
+    public function getTrackNumber() { return $this->trackNumber; }
+    public function getDuration() { return $this->duration; }
+
+    public function jsonSerialize() {
         return [
             'id' => $this->id,
             'name' => $this->name,
@@ -26,33 +32,39 @@ class Song {
     }
 }
 
-class OST {
-    private int $id;
-    private string $name;
-    private string $videoGame;
-    private int $releaseYear;
-    private array $trackList = [];
+class OST implements JsonSerializable {
+    private $id;
+    private $name;
+    private $videoGameName;
+    private $releaseYear;
+    private $trackList = [];
 
-    public function __construct(int $id, string $name, string $videoGame, int $releaseYear) {
+    public function __construct($id, $name, $videoGameName, $releaseYear) {
         $this->id = $id;
         $this->name = $name;
-        $this->videoGame = $videoGame;
+        $this->videoGameName = $videoGameName;
         $this->releaseYear = $releaseYear;
     }
 
-    public function addSong(Song $song): void {
+    public function addTrack(Song $song) {
         $this->trackList[] = $song;
     }
 
-    public function toArray(): array {
+    public function getId() { return $this->id; }
+    public function getName() { return $this->name; }
+    public function getVideoGameName() { return $this->videoGameName; }
+    public function getReleaseYear() { return $this->releaseYear; }
+    public function getTrackList() { return $this->trackList; }
+
+    public function jsonSerialize() {
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'videoGame' => $this->videoGame,
+            'videoGameName' => $this->videoGameName,
             'releaseYear' => $this->releaseYear,
-            'trackList' => array_map(function (Song $song) {
-                return $song->toArray();
-            }, $this->trackList)
+            'trackList' => $this->trackList,
         ];
     }
 }
+
+?>

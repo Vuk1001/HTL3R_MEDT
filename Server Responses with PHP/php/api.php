@@ -1,34 +1,33 @@
 <?php
-require_once 'Seeder.php'; // Stelle sicher, dass dies den korrekten Pfad hat
 
-// Funktion zur Rückgabe von JSON
-function respondWithJson(array $data): void {
-    header('Content-Type: application/json');
-    echo json_encode($data);
-}
+require_once 'Seeder.php';
 
-// Parameter abrufen
-$id = isset($_GET['id']) ? (int)$_GET['id'] : null;
+ob_start();
 
-// Daten seeden
-$osts = Seeder::seed();
+if (isset($_GET['id'])) {
+    $id = (int)$_GET['id'];
+    $osts = Seeder::seed();
+    $found = false;
 
-// Eine spezifische OST abrufen
-if ($id !== null) {
     foreach ($osts as $ost) {
-        if ($ost->toArray()['id'] === $id) {
-            respondWithJson($ost->toArray());
-            exit;
+        if ($ost->getId() === $id) {
+            $found = true;
+            header('Content-Type: application/json');
+            echo json_encode($ost, JSON_PRETTY_PRINT);
+            break;
         }
     }
-    // Fehler, falls OST nicht gefunden wird
-    respondWithJson(['error' => 'OST not found']);
-    exit;
+
+    if (!$found) {
+        header('Content-Type: application/json');
+        echo json_encode(['error' => 'OST not found'], JSON_PRETTY_PRINT);
+    }
+} else {
+    $osts = Seeder::seed();
+    header('Content-Type: application/json');
+    echo json_encode($osts, JSON_PRETTY_PRINT);
 }
 
-// Alle OSTs abrufen
-if (!isset($_GET['id'])) {
-    $allOsts = array_map(fn($ost) => $ost->toArray(), $osts);
-    respondWithJson($allOsts);
-    exit;
-}
+ob_end_flush();
+
+?>
