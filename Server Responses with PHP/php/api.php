@@ -2,7 +2,6 @@
 
 require_once 'Seeder.php';
 
-ob_start();
 
 if (isset($_GET['id'])) {
     $id = (int)$_GET['id'];
@@ -28,6 +27,5 @@ if (isset($_GET['id'])) {
     echo json_encode($osts, JSON_PRETTY_PRINT);
 }
 
-ob_end_flush();
 
 ?>
