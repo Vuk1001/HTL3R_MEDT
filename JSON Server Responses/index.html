@@ -1,10 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="main.js"></script>
+    <title>Hochzeits-Locations</title>
 </head>
-<body>
-$END$
+<body class="container container-xl bg-dark">
+<h1 class="text-light">Working with JSON Server Responses</h1>
+<h2 class="text-light">Unsere Empfehlung</h2>
+<div class ="text-light" id="recommendation">
+
+</div>
+<ul id="WienList"></ul>
+<h2 class="text-light">Random Location</h2>
+<div class="container" id="RandomLocationField">
+    <button class="btn btn-primary" id="LocationButton">
+        Get Random Location
+    </button>
+    <div class="text-light" id = location>
+
+    </div>
+</div>
 </body>
 </html>
