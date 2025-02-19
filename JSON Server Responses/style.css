@@ -1,15 +1,14 @@
-/* Stylesheet for Hochzeits-Locations */
 
-/* General body styling */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #1c1c1c; /* Dark background for contrast */
-    color: #f8f9fa; /* Light text for readability */
+    background-color: #1c1c1c;
+    color: #f8f9fa;
 }
 
-/* Container styles */
+
 .container {
     margin: 0 auto;
     max-width: 900px;
@@ -19,14 +18,13 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Headings */
 h1, h2 {
     text-align: center;
-    color: #ffc107; /* Highlighted color for headings */
+    color: #ffc107;
     margin-bottom: 20px;
 }
 
-/* Text and links */
+
 .text-light {
     color: #f8f9fa;
 }
@@ -38,7 +36,7 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Button styles */
+
 button {
     background-color: #007bff;
     color: #fff;

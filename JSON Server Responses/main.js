@@ -25,7 +25,7 @@ let locationDiv = document.getElementById("location");
 async function promoteLocation() {
     const locations = await fetchData();
     let recommendation = document.getElementById("recommendation");
-    let rnd = Math.floor(Math.random() * locations.length); // Get a random index
+    let rnd = Math.floor(Math.random() * locations.length);
     let promoted = locations[rnd];
     let prom = new Location(
         promoted.OBJECTID,
