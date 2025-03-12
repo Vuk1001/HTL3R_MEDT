@@ -12,25 +12,27 @@ $hotels = [
     [
         'hotel_name' => 'HTL Rennweg',
         'hotel_description' => 'A little uncomfortable but warm.',
-        'hotel_rating' => '2.5 Stars'
+        'hotel_rating' => '2.5 Stars',
+        'hotel_image' => 'images/htl_rennweg.jpg'
     ],
     [
         'hotel_name' => 'Reumannplatz',
         'hotel_description' => 'Scary, wouldnt recommend',
-        'hotel_rating' => '1 Star'
+        'hotel_rating' => '1 Star',
+        'hotel_image' => 'images/reumannplatz.jpg'
     ],
     [
         'hotel_name' => 'McDonalds Stephansplatz',
         'hotel_description' => 'Tasty but mean. They kicked me out.',
-        'hotel_rating' => '3 Stars'
-    ]
-    ,
+        'hotel_rating' => '3 Stars',
+        'hotel_image' => 'images/mcdonalds.jpg'
+    ],
     [
         'hotel_name' => 'Sigma Nation Gaming',
         'hotel_description' => 'English video talk for 10 minutes.',
-        'hotel_rating' => '5 Stars'
+        'hotel_rating' => '5 Stars',
+        'hotel_image' => 'images/sigma_nation.jpg'
     ]
-
 ];
 
 $loopStartTag = '<!-- START_HOTEL_LOOP -->';
