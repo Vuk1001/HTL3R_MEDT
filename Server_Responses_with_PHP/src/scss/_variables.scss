@@ -1,0 +1,5 @@
+$primary: #ff5733;
+$enable-rounded: false;
+body {
+  background-color: lighten($primary, 40%);
+}

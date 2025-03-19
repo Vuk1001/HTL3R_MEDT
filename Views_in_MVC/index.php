@@ -1,4 +1,7 @@
 <?php
+require_once 'vendor/autoload.php';
+use Nicki\ViewsInMvc\Entity\Hotel;
+
 $templateFile = 'template.html';
 if (!file_exists($templateFile)) {
     die("Template file not found.");
@@ -9,30 +12,11 @@ $templateContent = fread($fp, filesize($templateFile));
 fclose($fp);
 
 $hotels = [
-    [
-        'hotel_name' => 'HTL Rennweg',
-        'hotel_description' => 'A little uncomfortable but warm.',
-        'hotel_rating' => '2.5 Stars',
-        'hotel_image' => 'images/htl_rennweg.jpg'
-    ],
-    [
-        'hotel_name' => 'Reumannplatz',
-        'hotel_description' => 'Scary, wouldnt recommend',
-        'hotel_rating' => '1 Star',
-        'hotel_image' => 'images/reumannplatz.jpg'
-    ],
-    [
-        'hotel_name' => 'McDonalds Stephansplatz',
-        'hotel_description' => 'Tasty but mean. They kicked me out.',
-        'hotel_rating' => '3 Stars',
-        'hotel_image' => 'images/mcdonalds.jpg'
-    ],
-    [
-        'hotel_name' => 'Sigma Nation Gaming',
-        'hotel_description' => 'English video talk for 10 minutes.',
-        'hotel_rating' => '5 Stars',
-        'hotel_image' => 'images/sigma_nation.jpg'
-    ]
+    new Hotel('HTL Rennweg', 'A little uncomfortable but warm.', '2.5 Stars', 'images/htl_rennweg.jpg'),
+    new Hotel('Reumannplatz', 'Scary, wouldn\'t recommend', '1 Star', 'images/reumannplatz.jpg'),
+    new Hotel('McDonalds Stephansplatz', 'Tasty but mean. They kicked me out.', '3 Stars', 'images/mcdonalds.jpg'),
+    new Hotel('Sigma Nation Gaming', 'English video talk for 10 minutes.', '5 Stars', 'images/sigma_nation.jpg'),
+    new Hotel('Sigma Nation Gaming', 'English video talk for 10 minutes.', '5 Stars', '')
 ];
 
 $loopStartTag = '<!-- START_HOTEL_LOOP -->';
@@ -49,9 +33,11 @@ if ($startPos !== false && $endPos !== false) {
 
     foreach ($hotels as $hotel) {
         $currentBlock = $loopBlock;
-        foreach ($hotel as $key => $value) {
-            $currentBlock = str_replace('{{' . $key . '}}', $value, $currentBlock);
-        }
+        $currentBlock = str_replace('{{hotel_name}}', $hotel->name, $currentBlock);
+        $currentBlock = str_replace('{{hotel_description}}', $hotel->description, $currentBlock);
+        $currentBlock = str_replace('{{hotel_rating}}', $hotel->rating, $currentBlock);
+        $currentBlock = str_replace('{{hotel_image}}', $hotel->image, $currentBlock);
+
         $hotelOutput .= $currentBlock;
     }
 
