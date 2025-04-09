@@ -12,10 +12,10 @@ $templateContent = fread($fp, filesize($templateFile));
 fclose($fp);
 
 $hotels = [
-    new Hotel('HTL Rennweg', 'A little uncomfortable but warm.', '2.5 Stars', 'images/htl_rennweg.jpg'),
-    new Hotel('Reumannplatz', 'Scary, wouldn\'t recommend', '1 Star', 'images/reumannplatz.jpg'),
-    new Hotel('McDonalds Stephansplatz', 'Tasty but mean. They kicked me out.', '3 Stars', 'images/mcdonalds.jpg'),
-    new Hotel('Sigma Nation Gaming', 'English video talk for 10 minutes.', '5 Stars', 'images/sigma_nation.jpg'),
+    new Hotel('HTL Rennweg', 'A little uncomfortable but warm.', '2.5 Stars', 'public/images/htl_rennweg.jpg'),
+    new Hotel('Reumannplatz', 'Scary, wouldn\'t recommend', '1 Star', 'public/images/reumannplatz.jpg'),
+    new Hotel('McDonalds Stephansplatz', 'Tasty but mean. They kicked me out.', '3 Stars', 'public/images/mcdonalds.jpg'),
+    new Hotel('Sigma Nation Gaming', 'English video talk for 10 minutes.', '5 Stars', 'public/images/sigma_nation.jpg'),
     new Hotel('Sigma Nation Gaming', 'English video talk for 10 minutes.', '5 Stars', '')
 ];
 

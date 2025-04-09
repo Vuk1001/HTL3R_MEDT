@@ -1,5 +1,5 @@
 <?php
-namespace Nicki\ViewsInMvc\Entity\Hotel;
+namespace Nicki\ViewsInMvc\Entity;
 class Hotel {
     public string $name;
     public string $description;

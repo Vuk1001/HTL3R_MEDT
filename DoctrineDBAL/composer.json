@@ -1,0 +1,15 @@
+{
+    "name": "nicki/doctrine-dbal",
+    "autoload": {
+        "psr-4": {
+            "Nicki\\DoctrineDbal\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Niqkl",
+            "email": "1201@htl.rennweg.at"
+        }
+    ],
+    "require": {}
+}
