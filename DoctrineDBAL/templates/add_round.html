@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Round</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; }
+        input, select { width: 100%; padding: 8px; box-sizing: border-box; }
+        button { background: #4CAF50; color: white; padding: 10px 15px; border: none; cursor: pointer; }
+        button:hover { background: #45a049; }
+    </style>
+</head>
+<body>
+<h1>Add New Game Round</h1>
+<form action="/save_round.php" method="post">
+
+    <div class="form-group">
+        <label for="round_number">Round Number:</label>
+        <input type="number" id="round_number" name="round_number" min="1" required>
+    </div>
+
+    <h3>Player 1</h3>
+    <div class="form-group">
+        <label for="player1_name">Name:</label>
+        <input type="text" id="player1_name" name="player1_name" required>
+    </div>
+    <div class="form-group">
+        <label for="player1_symbol">Symbol:</label>
+        <select id="player1_symbol" name="player1_symbol" required>
+            <option value="rock">Rock</option>
+            <option value="paper">Paper</option>
+            <option value="scissors">Scissors</option>
+        </select>
+    </div>
+
+    <h3>Player 2</h3>
+    <div class="form-group">
+        <label for="player2_name">Name:</label>
+        <input type="text" id="player2_name" name="player2_name" required>
+    </div>
+    <div class="form-group">
+        <label for="player2_symbol">Symbol:</label>
+        <select id="player2_symbol" name="player2_symbol" required>
+            <option value="rock">Rock</option>
+            <option value="paper">Paper</option>
+            <option value="scissors">Scissors</option>
+        </select>
+    </div>
+
+    <button type="submit">Save Round</button>
+</form>
+<p><a href="/">Back to Tournament</a></p>
+</body>
+</html>
