@@ -15,6 +15,4 @@ if (!$connection->createSchemaManager()->tablesExist(['game_rounds'])) {
     $schemaSql = file_get_contents(__DIR__.'/schema.sql');
     $connection->executeStatement($schemaSql);
     echo "Database table created successfully!\n";
-} else {
-    echo "Database table already exists.\n";
 }
