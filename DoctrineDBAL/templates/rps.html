@@ -18,9 +18,22 @@
     </style>
 </head>
 <body>
+<?php
+$tournamentName = '-';
+$tournamentDate = '-';
+if (!empty($groupedRounds)) {
+    foreach ($groupedRounds as $roundSet) {
+        if (!empty($roundSet[0]['tournament_name'])) {
+            $tournamentName = htmlspecialchars($roundSet[0]['tournament_name']);
+            $tournamentDate = date('d.m.Y', strtotime($roundSet[0]['tournament_date']));
+            break;
+        }
+    }
+}
+?>
 <div class="tournament-info">
-    <h1><?= htmlspecialchars($groupedRounds[1][0]['tournament_name']) ?></h1>
-    <p>Tournament date: <?= date('d.m.Y', strtotime($groupedRounds[1][0]['tournament_date'])) ?></p>
+    <h1><?= $tournamentName ?></h1>
+    <p>Tournament date: <?= $tournamentDate ?></p>
 </div>
 
 <h2>Game Rounds</h2>
@@ -38,7 +51,7 @@
         </div>
         <?php endforeach; ?>
     </div>
-    <p>Played at: <?= date('Y-m-d g:i A', strtotime($player['played_at'])) ?></p>
+    <p>Played at: <?= date('Y-m-d g:i A', strtotime($players[0]['played_at'])) ?></p>
     <p>
         <a href="/confirm_delete.php?round=<?= $roundNumber ?>"
            style="color: #f44336; text-decoration: none;">
