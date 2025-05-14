@@ -4,10 +4,12 @@ use Nicki\DoctrineDbal\Database\Connection;
 
 $db = Connection::getInstance();
 
-$roundsData = $db->fetchAllAssociative('
-    SELECT * FROM game_rounds 
-    ORDER BY round_number
-');
+$queryBuilder = $db->createQueryBuilder();
+$roundsData = $queryBuilder
+    ->select('*')
+    ->from('game_rounds')
+    ->orderBy('round_number')
+    ->fetchAllAssociative();
 
 $groupedRounds = [];
 foreach ($roundsData as $round) {
