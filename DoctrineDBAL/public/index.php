@@ -6,7 +6,7 @@ $db = Connection::getInstance();
 
 $roundsData = $db->fetchAllAssociative('
     SELECT * FROM game_rounds 
-    ORDER BY round_number, played_at
+    ORDER BY round_number
 ');
 
 $groupedRounds = [];
