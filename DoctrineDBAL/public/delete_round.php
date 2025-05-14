@@ -4,11 +4,13 @@ use Nicki\DoctrineDbal\Database\Connection;
 
 $db = Connection::getInstance();
 
-$db->executeStatement(
-    "DELETE FROM game_rounds WHERE round_number = ?",
-    [$_POST['round_number']]
-);
+$queryBuilder = $db->createQueryBuilder();
+
+$queryBuilder
+    ->delete('game_rounds')
+    ->where('round_number = :roundNumber')
+    ->setParameter('roundNumber', $_POST['round_number'])
+    ->executeStatement();
 
 header('Location: /');
 exit();
-

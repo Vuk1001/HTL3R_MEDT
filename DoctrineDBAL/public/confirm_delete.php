@@ -6,9 +6,14 @@ $roundNumber = $_GET['round'] ?? 0;
 
 $db = Connection::getInstance();
 
-$players = $db->fetchAllAssociative(
-    "SELECT * FROM game_rounds WHERE round_number = ? ORDER BY played_at",
-    [$roundNumber]
-);
+$queryBuilder = $db->createQueryBuilder();
+
+$players = $queryBuilder
+    ->select('*')
+    ->from('game_rounds')
+    ->where('round_number = :roundNumber')
+    ->orderBy('played_at')
+    ->setParameter('roundNumber', $roundNumber)
+    ->fetchAllAssociative();
 
 include __DIR__.'/../templates/delete_round.html';
