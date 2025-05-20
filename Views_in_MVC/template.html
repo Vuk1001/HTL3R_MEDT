@@ -1,35 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Famous Hotels on the Strip</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-        .hotel { border: 1px solid #ddd; margin: 10px; padding: 10px; text-align: center; }
-        .hotel img {
-            width: 500px;
-            height: 400px;
-            object-fit: cover;
-            display: block;
-            margin: 0 auto 10px;
-            border-radius: 10px;
-        }
-        @media (min-width: 600px) {
-            .hotel { width: 45%; display: inline-block; vertical-align: top; }
-        }
-        h1{text-align: center}
-    </style>
+    <link rel="stylesheet" href="public/css/main.css">
 </head>
-<body>
-<h1>Famous Hotels on the Strip</h1>
-<!-- START_HOTEL_LOOP -->
-<div class="hotel">
-    <img src="{{hotel_image}}" alt="{{hotel_name}}">
-    <h2>{{hotel_name}}</h2>
-    <p>{{hotel_description}}</p>
-    <p><strong>Rating:</strong> {{hotel_rating}}</p>
+<body class="bg-light">
+<div class="container py-4">
+    <header class="text-center mb-4">
+        <h1 class="display-5 fw-bold text-primary">Famous Hotels on the Strip</h1>
+    </header>
+
+    <div class="row g-3">
+        <!-- START_HOTEL_LOOP -->
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="hotel card shadow-sm h-100">
+                <img src="{{hotel_image}}" alt="{{hotel_name}}" class="card-img-top img-fluid">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <h2 class="card-title h5 mb-0">{{hotel_name}}</h2>
+                        <span class="badge bg-warning text-dark">{{hotel_rating}}</span>
+                    </div>
+                    <p class="card-text">{{hotel_description}}</p>
+                </div>
+            </div>
+        </div>
+        <!-- END_HOTEL_LOOP -->
+    </div>
 </div>
-<!-- END_HOTEL_LOOP -->
+
 </body>
 </html>

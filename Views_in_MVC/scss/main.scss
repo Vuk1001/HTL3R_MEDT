@@ -1,0 +1,44 @@
+$primary-color: #ddd;
+$secondary-color: #333;
+$background-color: #fff;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+@mixin center-block {
+  display: block;
+  margin: 0 auto;
+}
+
+.hotel {
+  border: 1px solid $primary-color;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+
+  img {
+    width: 500px;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 10px;
+    border-radius: 10px;
+  }
+}
+
+
+
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+.hotel { border: 1px solid #ddd; margin: 10px; padding: 10px; text-align: center; }
+.hotel img {
+  width: 500px;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 10px;
+  border-radius: 10px;
+}
+@media (min-width: 600px) {
+  .hotel { width: 45%; display: inline-block; vertical-align: top; }
+}
+h1{text-align: center}
+
